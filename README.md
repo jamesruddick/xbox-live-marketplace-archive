@@ -1,9 +1,9 @@
 # Xbox Live Marketplace Archive
-The Xbox Live Marketplace Archive is a definitive digital repository dedicated to preserving the legacy of the Xbox 360 ecosystem. By cataloging games, add-ons, themes, and media, this archive provides a vital historical record and technical resource for researchers, preservationists, and gaming enthusiasts alike.
+The Xbox Live Marketplace Archive is a comprehensive digital repository dedicated to preserving the legacy of the Xbox 360 ecosystem. By cataloging games, add-ons, themes, and media, this archive provides a vital historical record and technical resource for researchers, preservationists, and gaming enthusiasts alike.
 
 ## 🌎 Supported Locales
 The archive is organized by regional **Locales** to reflect marketplace variations across the globe.
-*   **Primary Reference:** `en-us` (United States) is the default and most comprehensive dataset.
+*   **Primary Reference:** `en-us` (English – United States) is the default and most comprehensive dataset.
 *   **Expansion:** Support for additional locales is planned for future updates.
 
 ## 📂 Archive Structure
@@ -13,6 +13,16 @@ The repository utilizes a dual-layer system designed for both human readability 
 The CSV files in the root directory act as the master index for each region. These are the entry points for finding a specific item's **Product ID**.
 *   **Format:** `xbox-live-marketplace.[Locale].csv`
 *   **Example:** `xbox-live-marketplace.en-us.csv`
+
+| Column | Description |
+| :--- | :--- |
+| `id` | Product ID (GUID); matches the XML filename in the locale folder |
+| `type` | Product Type ID (see [Product Type Reference](#-product-type-reference)) |
+| `title` | Product name as listed on the marketplace |
+| `titleid` | Hexadecimal Title ID of the associated game or app (e.g. `0x41560817`) |
+| `offerid` | Hexadecimal Offer ID (blank if none) |
+| `contentid` | Base64-encoded Content ID (blank if none) |
+| `lastupdated` | Last-modified timestamp in ISO 8601 UTC format |
 
 ### 2. Product Data Folders (XML)
 Once a Product ID is identified from the CSV, the corresponding raw metadata can be found in the locale-specific folder.
@@ -32,8 +42,12 @@ Entries within the CSV indices are categorized by a **Product Type ID**. Use thi
 | **21** | Original Xbox Games |
 | **22** | Gamer Pictures |
 | **23** | Arcade Games |
+| **30** | Game Videos |
+| **34** | Game Trailers |
 | **37** | Indie Games |
+| **46** | Applications |
 | **47** | Avatar Items |
+| **61** | Streaming Services |
 
 ## 📜 License
 This project is dedicated to the public domain under the **CC0 1.0 Universal** license. You may copy, modify, and distribute this work, even for commercial purposes, all without asking permission. 
